@@ -1,0 +1,21 @@
+done useing modalhide: update needs to have credentialsupdated else will delete all and would not save credentials because if credentials is not updated will be null
+
+done: need to make sure all fields and tables are empty when clicked addnew customer
+
+after created new customer, then click on edit, the edit credentials is not correct
+
+done custeomrShow form after loaded sort order messed up
+
+add accounting period: monthly/quarterly/yearly
+
+add customer services: accounting/tax/payroll/accounting payroll tax/payroll only...
+
+
+
+.to add last recon month in accounts
+.to fux accordion for customer update and created
+
+.SOMETIMES - once a new customer record is created and added with credentials, once saved, then 
+open the newly created record, the credentials picked up a wrong record
+
+.customerindex when sort, edit and delete button mess up - resolve by removing the id in the buttons

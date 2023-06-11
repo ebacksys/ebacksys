@@ -1,0 +1,28 @@
+.custom-dialog-size90 {
+  max-width: 90%;
+}
+.custom-dialog-size60 {
+  max-width: 60%;
+}
+
+tableMax {
+  max-width: 100%;
+}
+
+.editable-cell[contenteditable=true] {
+  outline: 2px solid red !important;
+  background-color: #d1f2eb;
+}
+
+.bg-gradient {
+  background-image: linear-gradient(to bottom, #dfd8e4, #dfd8e4);
+}
+
+.bg-gradientH {
+  background-image: linear-gradient(to right, #dfd8e4, #9258bb);
+}
+
+
+tr.border-bottom-bold {
+  border-bottom: 3px dotted rgb(129, 137, 21);
+}

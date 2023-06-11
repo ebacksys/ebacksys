@@ -1,0 +1,68 @@
+npm run dev -> once safe, with the live serve running can see the immediate change in the browser
+
+need to install tailwind css first before jetstream
+
+will explore livewire
+    composer require livewire/livewire
+    php artisan livewire:publish --config -> this should update the providers in config/app.php with Livewire\LivewireServiceProvider::class,
+    backpack for CRUD
+
+@vite('resources/css/app.css') -> to include in the Head section to enable tailwind, need to explore "extends" (adminlte)
+
+code .  -> to open VsCode
+
+CRUD: (https://www.youtube.com/watch?v=LvF88TKw-BU)
+=====
+database: php artisan make:migration create_"tablename"_table.
+    After table is created, go under database, migrations, and add the fields in the 2014-xxx_create_teblename_table file
+    then -> php artisan migrate
+
+create controller -> php artisan make: controller tablename --resource (fine tune the controller)
+
+create model -> php artisan make:model tablename (fine tune model)
+
+create view -> create folder under resources (tablename"s"): layout.blade.php, index.blade.php, create.blade.php, edit.blade.php, show.blade.php
+        (how to use @yeild, extends, and x-app-layout, @section(content) ??)
+
+routes -> web.php _> make sure controller path is included
+    Route::resource("/tablename", controllername::class)
+
+url reference: <a href="{{url('add-student')}}" class...>
+
+Handling validation and error message
+======================================
+https://www.youtube.com/watch?v=DuwiTuXrBEI&t=1676s  (38 min)
+	Controller:
+		$request->validate([
+			'name' => 'required',
+			'email' => 'email | required',		
+		])
+
+
+		return redirect()->back->with('success', 'Student Added');
+	Blade:
+		1.) Above <form>, add
+			@if(Session::has('success')
+			<div class= "alert alert-success" role="alert">
+				{{Session::get('success')}}
+			</div>
+			@endif
+		2.) Right after <input type...name="name" value="{{old('name')}}">
+			@error('name')
+			<div class= "alert alert-danger" role="alert">
+				{{$message}}   //$message is the default error message in laravel
+			</div>
+			@enderror
+
+
+Installation of AdminLte 3 with authentication:  
+(https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Artisan-Console-Commands)
+(https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation)
+	composer require jeroennoten/laravel-adminlte
+	php artisan adminlte:install --type=full --with=main_views
+	composer require laravel/ui
+
+
+
+To prevent user from getting into the root, add this below the home routes
+	Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
